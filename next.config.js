@@ -3,12 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**", // boleh ambil image dari mana saja
-      },
-    ],
-  },
+      { protocol: "https", hostname: "**" }
+    ]
+  }
 }
 
-export default nextConfig
+module.exports = nextConfig
