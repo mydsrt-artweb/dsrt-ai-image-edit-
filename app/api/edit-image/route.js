@@ -1,14 +1,12 @@
 export async function POST(req) {
   try {
     const { imageUrl, prompt } = await req.json()
-    if (!imageUrl || !prompt) {
-      return new Response(JSON.stringify({ error: "Missing params" }), { status: 400 })
-    }
+    if (!imageUrl || !prompt) return new Response(JSON.stringify({ error: "Missing params" }), { status: 400 })
 
     const res = await fetch("https://api.replicate.com/v1/predictions", {
       method: "POST",
       headers: {
-        Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
+        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
